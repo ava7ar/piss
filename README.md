@@ -1,2 +1,3 @@
-piss
+piss 
 ====
+piknq demek
