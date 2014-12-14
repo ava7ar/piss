@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="representation" default="all" >
+	
+  	<target name ="makejar">
+		<jar jarfile="target/build/representation.jar" basedir="target/classes"/>
+  	</target>
+	
+  	<target name="compile">
+  		<javac srcdir="src" destdir="target/classes"/>
+  	</target>
+	
+  	<target name="all" depends="createdirs">
+ 		<antcall target="compile" />
+  		<antcall target="makejar" />
+ 	</target>
+	
+	<target name="createdirs" depends="clean">
+		<mkdir dir="target/classes"/>
+		<mkdir dir="target/build"/>
+	</target>
+	
+	<target name="clean">
+		<delete dir="target"/>
+	</target>
+</project>
