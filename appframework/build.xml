@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="appframework" default="all" xmlns:ivy="antlib:org.apache.ivy.ant">
-	
-  	<target name ="makejar">
-		<jar jarfile="target/build/appframework.jar" basedir="target/classes"/>
-  	</target>
-	
-	<target name="move_artifacts" depends="resolve">
-		<move tofile="target/lib" file="lib"/>
-	</target>
-	
+
 	<path id="master">
 		<fileset dir="target/lib">
-			<include name="*.jar"/>
+			<include name="*.jar" />
 		</fileset>
 	</path>
-  	<target name="compile" depends="move_artifacts">
-  		<javac destdir="target/classes" >
-  		  	<src path="src" />
-  		  	<classpath refid="master"/>
-  		</javac>
-  	</target>
-	
-  	<target name="all" depends="createdirs">
- 		<antcall target="compile" />
-  		<antcall target="makejar" />
- 	</target>
-	
-	<target name="createdirs" depends="clean">
-		<mkdir dir="target/classes"/>
-		<mkdir dir="target/build"/>
+
+	<target name="makejar">
+		<jar jarfile="target/build/appframework.jar" basedir="target/classes" />
 	</target>
-	
+
+	<target name="move_artifacts" depends="resolve">
+		<move tofile="target/lib" file="lib" />
+	</target>
+
+	<target name="compile" depends="move_artifacts">
+		<javac destdir="target/classes">
+			<src path="src" />
+			<classpath refid="master" />
+		</javac>
+	</target>
+
+	<target name="all" depends="createdirs">
+		<antcall target="compile" />
+		<antcall target="makejar" />
+	</target>
+
+	<target name="createdirs" depends="clean">
+		<mkdir dir="target/classes" />
+		<mkdir dir="target/build" />
+	</target>
+
+	<target name="clean">
+		<delete dir="target" />
+	</target>
+
 	<target name="resolve" description="--> retrieve dependencies with ivy">
 		<ivy:retrieve />
 	</target>
-		
-	<target name="clean">
-		<delete dir="target"/>
-	</target>
+
 </project>
