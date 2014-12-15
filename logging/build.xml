@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="logging" default="all" >
+<project name="logging" default="all" xmlns:ivy="antlib:org.apache.ivy.ant">
 	
   	<target name ="makejar">
 		<jar jarfile="target/build/logging.jar" basedir="target/classes"/>
   	</target>
 	
-  	<target name="compile">
+  	<target name="compile" depends="resolve">
   		<javac srcdir="src" destdir="target/classes"/>
   	</target>
 	
@@ -22,4 +22,8 @@
 	<target name="clean">
 		<delete dir="target"/>
 	</target>
+	
+	<target name="resolve" description="--> retrieve dependencies with ivy">
+		<ivy:retrieve />
+    </target>
 </project>
