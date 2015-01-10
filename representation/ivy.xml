@@ -3,7 +3,7 @@
     <info organisation="fmi.uni-sofia" module="appframework"/>
     <dependencies>
         <dependency org="commons-cli" name="commons-cli" rev="1.0"/>
-		<dependency org="com.sun.jersey" name="jersey-core" rev="1.18.3"/>
+		<dependency org="com.sun.jersey" name="jersey-core" rev="1.18"/>
 		<dependency org="javax.ws.rs" name="javax.ws.rs-api" rev="2.0.1"/>
     </dependencies>
 </ivy-module>
