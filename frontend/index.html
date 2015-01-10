@@ -16,6 +16,12 @@
     <link href="css/sb-admin.css" rel="stylesheet">
 
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <link rel="stylesheet" type="text/css" href="Slideshow/agile_carousel.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.js"></script>
+    <script src="Slideshow/agile_carousel.alpha.js"></script>
 
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -27,7 +33,6 @@
 <body>
 
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="navbar-header">
@@ -39,11 +44,35 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Tour Offers</a>
             </div>
-    
+            
+            <ul class="nav navbar-right top-nav">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#login"> Login </a>
+                </li>
+            </ul>
+            <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Login</h4>
+                  </div>
+                  <div class="modal-body">
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Login</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Offers</a>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Home</a>
                     </li>
                 </ul>
             </div>
@@ -52,7 +81,44 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-
+                
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="banner123">
+                            <link rel="stylesheet" type="text/css" href="Slideshow/agile_carousel.css">
+                            <link rel="stylesheet" type="text/css" href="css/shell.css">
+                            <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">-->
+                            
+                            
+                            <script>
+                                $.getJSON("hot_offers.json", function(data) {
+                                    $(document).ready(function() {
+                                        $("#flavor_2").agile_carousel({
+                                            carousel_data: data,
+                                            carousel_outer_height: 446,
+                                            carousel_height: 325,
+                                            slide_height: 325,
+                                            carousel_outer_width: 934,
+                                            slide_width: 934,
+                                            transition_type: "fade",
+                                            transition_time: 600,
+                                            timer: 3000,
+                                            continuous_scrolling: true,
+                                            //control_set_1: "numbered_buttons,previous_button,pause_button,next_button",
+                                            control_set_2: "content_buttons",
+                                            change_on_hover: "content_buttons"
+                                        });
+                                    });
+                                });
+                            </script>
+                            <div class="banner_wrapper">
+                                <div class="banner_rel">
+                                    <div class="slideshow" id="flavor_2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -153,9 +219,9 @@
     </div>
     <!-- /#wrapper -->
 
-    <script src="js/jquery.js"></script>
+    <!--<script src="js/jquery.js"></script>-->
 
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
 
 </body>
 

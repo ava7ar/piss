@@ -1,0 +1,165 @@
+
+#banner123 {
+    float: left;
+    width: 962px;
+    height: 473px;
+    background: url('img/banner-123-bg.gif') no-repeat;
+    padding-bottom: 13px;
+}
+#banner123 .banner_wrapper {
+    float: left;
+    width: 934px;
+    height: 446px;
+    padding-top: 13px;
+    padding-left: 23px;
+}
+#banner123 .banner_rel {
+    position: relative;
+    width: 934px;
+    height: 446px;
+}
+#banner123 .image {
+    position: absolute;
+    width: 914px;
+    height: 325px;
+    font-size: 0px;
+    line-height: 0px;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+}
+#banner123 .image img {
+    width: 914px;
+    height: 325px;
+    border-width: 0px;
+    padding: 0px;
+}
+#banner123 .info {
+    position: absolute;
+    width: 430px;
+    height: 79px;
+    background: url('img/banner-123-text-bg.png') no-repeat;
+    padding: 10px 10px 0px 15px;
+    top: 220px;
+    right: 0px;
+    z-index: 2;
+}
+#banner123 .info img {
+    width: 34px;
+    height: 34px;
+    border-width: 0px;
+    padding: 0px;
+}
+#banner123 .title {
+    float: left;
+    width: 390px;
+    height: 40px;
+}
+#banner123 .title a:link {
+    font-size: 17px;
+    font-weight: bold;
+    color: #002F80;
+    text-decoration: none;
+    line-height: 14px;
+}
+#banner123 .title a:visited {
+    font-size: 17px;
+    font-weight: bold;
+    color: #002F80;
+    text-decoration: none;
+    line-height: 14px;
+}
+#banner123 .title a:hover {
+    font-size: 17px;
+    font-weight: bold;
+    color: #002F80;
+    text-decoration: underline;
+    line-height: 14px;
+}
+#banner123 .price {
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #002F80;
+    padding-right: 10px;
+}
+#banner123 .info_text {
+    float: left;
+    font-size: 12px;
+    font-weight: normal;
+    color: #444E58;
+    padding-top: 5px;
+}
+#banner123 .image_tn {
+    position: absolute;
+    width: 137px;
+    height: 132px;
+    left: 0px;
+    bottom: 4px;
+    z-index: 2;
+}
+#banner123 .img_tn {
+    position: absolute;
+    width: 123px;
+    height: 102px;
+    font-size: 0px;
+    line-height: 0px;
+    top: 22px;
+    left: 7px;
+}
+#banner123 .img_tn img {
+    width: 123px;
+    height: 102px;
+    border-width: 0px;
+    padding: 0px;
+}
+#banner123 .image_link {
+    float: left;
+    width: 123px;
+    height: 103px;
+    font-size: 0px;
+    line-height: 0px;
+    padding-top: 22px;
+    padding-left: 7px;
+}
+#banner123 .image_link img {
+    width: 123px;
+    height: 103px;
+    border-width: 0px;
+    padding: 0px;
+}
+#banner123 .image_link a:link,
+.image_link a:visited,
+.image_link a:hover {
+    font-size: 0px;
+    line-height: 0px;
+}
+#banner123 .image_text {
+    float: left;
+    width: 102px;
+    height: 42px;
+    padding-left: 18px;
+    padding-right: 10px;
+    line-height: 13px;
+}
+#banner123 .image_text a:link {
+    font-size: 10px;
+    font-weight: normal;
+    color: #052C57;
+    text-decoration: none;
+    line-height: 13px;
+}
+#banner123 .image_text a:visited {
+    font-size: 10px;
+    font-weight: normal;
+    color: #052C57;
+    text-decoration: none;
+    line-height: 13px;
+}
+#banner123 .image_text a:hover {
+    font-size: 10px;
+    font-weight: normal;
+    color: #052C57;
+    text-decoration: underline;
+    line-height: 13px;
+}
