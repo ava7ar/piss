@@ -14,6 +14,8 @@ public class DummyResource {
 	@Path(value = "/sample")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String sample() {
+            
+            
 		return "Kur";
 	}
 }
