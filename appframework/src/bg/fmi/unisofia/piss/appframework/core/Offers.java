@@ -5,6 +5,7 @@
  */
 package bg.fmi.unisofia.piss.appframework.core;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Offers {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private int id;
+    private int offerId;
 
     @Column(name = "title")
     private String title;
@@ -34,22 +35,22 @@ public class Offers {
     private double price;
 
     @Column(name = "startDate")
-    private int startDate;
+    private Date startDate;
 
     @Column(name = "endDate")
-    private int endDate;
+    private Date endDate;
 
     @Column(name = "destination")
     private String destination;
 
-    public Offers(String title, String description, double price, int startDate, int endDate, String destination, int id) {
+    public Offers(String title, String description, double price, Date startDate, Date endDate, String destination, int id) {
         this.title = title;
         this.description = description;
         this.price = price;
         this.startDate = startDate;
         this.endDate = endDate;
         this.destination = destination;
-        this.id = id;
+        this.offerId = id;
     }
 
     public Offers() {
@@ -57,12 +58,12 @@ public class Offers {
     }
 
     public int getId() {
-        return id;
+        return offerId;
     }
 
     public void setId(int id) {
         
-        this.id = id;
+        this.offerId = id;
     }
 
     public String getTitle() {
@@ -89,19 +90,19 @@ public class Offers {
         this.price = price;
     }
 
-    public int getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(int startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public int getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(int endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
@@ -111,17 +112,5 @@ public class Offers {
 
     public void setDestination(String destination) {
         this.destination = destination;
-    }
-
-    public void addOffer(Offers offer) {
-
-    }
-
-    public void deleteOffer(Offers offer) {
-
-    }
-
-    public void editOffer(Offers offer) {
-
     }
 }
