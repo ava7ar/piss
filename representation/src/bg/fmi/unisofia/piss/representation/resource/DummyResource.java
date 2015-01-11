@@ -2,6 +2,7 @@ package bg.fmi.unisofia.piss.representation.resource;
 
 import javax.jws.WebService;
 import javax.ws.rs.GET;
+
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -37,4 +38,6 @@ public class DummyResource {
 		DatabasePersister.persist(db);
 		return "Successful";
 	}
+
+
 }
