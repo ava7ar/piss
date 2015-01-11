@@ -34,6 +34,7 @@
 
 	<target name="clean">
 		<delete dir="target" />
+		<copy file="../appframework/target/build/appframework.jar" tofile="target/lib/appframework.jar" />
 	</target>
 
 	<target name="resolve" description="--> retrieve dependencies with ivy">
