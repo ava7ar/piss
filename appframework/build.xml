@@ -25,6 +25,7 @@
 	<target name="all" depends="createdirs">
 		<antcall target="compile" />
 		<antcall target="makejar" />
+		<antcall target="publish" />
 	</target>
 
 	<target name="createdirs" depends="clean">

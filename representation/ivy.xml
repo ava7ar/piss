@@ -1,6 +1,6 @@
 <!--Add dependencies and project info once requirements are clarified. -->
 <ivy-module version="2.0">
-    <info organisation="fmi.uni-sofia" module="appframework"/>
+    <info organisation="fmi.uni-sofia" module="representation"/>
     <dependencies>
         <dependency org="commons-cli" name="commons-cli" rev="1.0"/>
         <dependency org="com.sun.jersey" name="jersey-core" rev="1.18.3"/>
