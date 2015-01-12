@@ -1,24 +1,40 @@
 package bg.fmi.unisofia.piss.appframework.core;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.*;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.Transaction;
+//import org.hibernate.cfg.AnnotationConfiguration;
 
 public class DatabasePersister {
 
-	private static SessionFactory factory;
-	
-	public static void persist(Persistable object) {
-		factory = new AnnotationConfiguration().configure().addAnnotatedClass(object.getClass()).buildSessionFactory();
-		
-		Session session = factory.openSession();
-		try {
-			Transaction tx = session.beginTransaction();
-			session.save(object);
-			tx.commit();
-		} finally {
-			session.close();
-		}
-	}
+    private SessionFactory factory;
+
+    public SessionFactory getFactory() {
+        return factory;
+    }
+
+    public void setFactory(SessionFactory factory) {
+        DatabasePersister.factory = factory;
+    }
+
+    public DatabasePersister() {
+        factory = new AnnotationConfiguration().configure().addAnnotatedClass(object.getClass()).buildSessionFactory();
+
+    }
+
+    public static void persist(Persistable object) {
+
+        Session session = factory.openSession();
+        try {
+            Transaction tx = session.beginTransaction();
+            if (object.getId() != null) {
+                session.update(object);
+            } else {
+                session.save(object);
+            }
+            tx.commit();
+        } finally {
+            session.close();
+        }
+    }
 }

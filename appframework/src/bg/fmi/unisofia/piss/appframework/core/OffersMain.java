@@ -5,117 +5,100 @@
  */
 package bg.fmi.unisofia.piss.appframework.core;
 
-import java.time.Instant;
-import java.util.Date;
+//import java.time.Instant;
 import java.util.Iterator;
 import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author Gloria
  */
-public class OffersMain {
+public class OffersMain extends DatabasePersister {
 
-    private static SessionFactory factory;
+    Session session;
 
-    public static void main(String[] args) {
-        try {
-            factory = new AnnotationConfiguration()
-                    .configure()
-                    .addAnnotatedClass(Offers.class)
-                    .buildSessionFactory();
-        } catch (Throwable ex) {
-            System.out.println("Failed to create session" + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
-
+    public OffersMain() {
+        this.session = super.getFactory().openSession();
     }
 
-    public boolean addOffer(String title, String description,double price, Date startDate, Date endDate) {
-        Session session = factory.openSession();
-        Transaction tx = null;
-        
-       //add offer to db
+    public boolean addOffer(String title, String description, String destination, double price,
+            String startDate, String endDate, String imageUrl) {
+
+        //add offer to db
         try {
-            tx = session.beginTransaction();
             Offers offer = new Offers();
             offer.setTitle(title);
             offer.setDescription(description);
             offer.setPrice(price);
             offer.setStartDate(startDate);
             offer.setEndDate(endDate);
-            offer.setStartDate(Date.from(Instant.EPOCH));
-            
-            tx.commit();
+            offer.setStartDate(startDate);
+            offer.setDestination(destination);
+            offer.setImageUrl(imageUrl);
+            persist(offer);
         } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
 
-        } finally {
-            session.close();
+            e.printStackTrace();
         }
-        
         return true; //if it's ok 
     }
+
     //delete offer from id
     public void deleteOffer(int offerId) {
-        Session session = factory.openSession();
-        Transaction tx = null;
+
         try {
-            tx = session.beginTransaction();
             Offers offer = (Offers) session.get(Offers.class, offerId);
             session.delete(offer);
-            tx.commit();
         } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
+
             e.printStackTrace();
-        } finally {
-            session.close();
         }
     }
+
 // when push button edit
-    public void editOffer(int offerId) {
+    public Offers editOffer(int offerId) {
 
+        //list one offer to edit
+        try {
+            Offers offer = (Offers) session.get(Offers.class, offerId);
+
+        } catch (HibernateException e) {
+
+            e.printStackTrace();
+        }
+        return offer; //if it's ok 
     }
 
-    public void editOffer (int offerId, String title, String description,double price, Date startDate, Date endDate){
-        
+    public void editOffer(int offerId, String title, String destination, String description,
+            double price, String startDate, String endDate, String imageUrl) {
+        try {
+            Offers offer = (Offers) session.get(Offers.class, offerId);
+            offer.setTitle(title);
+            offer.setDescription(description);
+            offer.setPrice(price);
+            offer.setStartDate(startDate);
+            offer.setEndDate(endDate);
+            offer.setStartDate(startDate);
+            offer.setDestination(destination);
+            offer.setImageUrl(imageUrl);
+            persist(offer);
+        } catch (HibernateException e) {
+
+            e.printStackTrace();
+        }
+        return offer;
     }
+
     public List listOffers() {
-        Session session = factory.openSession();
-        Transaction tx = null;
         List offers = new ArrayList();
         try {
-            tx = session.beginTransaction();
             offers = session.createQuery("From Offers").list();
-//            for (Iterator iterator = offers.iterator(); iterator.hasNext();) {
-//                Offers offer = (Offers) iterator.next();
-//                System.out.println("Title" + offer.getTitle());
-//                System.out.println("Description" + offer.getDescription());
-//                System.out.println("Price" + offer.getPrice());
-//                System.out.println("Start Date" + offer.getStartDate());
-//                System.out.println("End Date" + offer.getEndDate());
-//            }
-            tx.commit();
         } catch (HibernateException e) {
-            if (tx != null) {
-                tx.rollback();
-            }
+
             e.printStackTrace();
-        } finally {
-            session.close();
         }
         return offers;
     }
+
 }

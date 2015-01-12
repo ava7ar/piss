@@ -5,7 +5,6 @@
  */
 package bg.fmi.unisofia.piss.appframework.core;
 
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,15 +34,35 @@ public class Offers {
     private double price;
 
     @Column(name = "startDate")
-    private Date startDate;
+    private String startDate;
 
     @Column(name = "endDate")
-    private Date endDate;
+    private String endDate;
 
     @Column(name = "destination")
     private String destination;
 
-    public Offers(String title, String description, double price, Date startDate, Date endDate, String destination, int id) {
+    @Column(name = "imageUrl")
+    private String imageUrl;
+
+    public int getOfferId() {
+        return offerId;
+    }
+
+    public void setOfferId(int offerId) {
+        this.offerId = offerId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Offers(String title, String description, double price,
+            String startDate, String endDate, String destination, int id) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -62,7 +81,7 @@ public class Offers {
     }
 
     public void setId(int id) {
-        
+
         this.offerId = id;
     }
 
@@ -90,19 +109,19 @@ public class Offers {
         this.price = price;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
